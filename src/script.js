@@ -17,8 +17,23 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('grey')
+scene.background = new THREE.Color('orange')
 scene.add(new THREE.AxesHelper())
+
+const material = new THREE.MeshBasicMaterial({color: 'red'})
+const geometry = new THREE.BoxGeometry(1,1,1)
+
+const cube = new THREE.Mesh(geometry,material)
+scene.add(cube)
+
+cube.position.x  = 10
+cube.rotation.x += Math.PI/8
+
+const blueMaterial = new THREE.MeshBasicMaterial({color: 'blue', wireframe:true})
+const sphereGeometry = new THREE.SphereGeometry(1,5,3)
+const sphere = new THREE.Mesh(sphereGeometry,blueMaterial)
+scene.add(sphere)
+
 
 
 /**
